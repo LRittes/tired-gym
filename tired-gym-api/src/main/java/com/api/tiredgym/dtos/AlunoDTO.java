@@ -1,12 +1,19 @@
 package com.api.tiredgym.dtos;
 
+import java.sql.Date;
+
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class AlunoDTO {
 
     @NotBlank
+    @Size(max = 11)
     private String cpf;
     @NotBlank
     private String nome;
@@ -18,12 +25,14 @@ public class AlunoDTO {
     private String sexo;
     @NotBlank
     private String foto;
-    @NotBlank
-    private String dtNascimento;
+    @NotNull
+    private Date dt_nascimento;
 
     private String codPlan;
-    @NotBlank
-    private String altura;
-    @NotBlank
-    private String peso;
+    @NotNull
+    @Min(1)
+    private float altura;
+    @NotNull
+    @Min(1)
+    private float peso;
 }

@@ -1,6 +1,7 @@
 package com.api.tiredgym.models;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,12 +28,12 @@ public class AlunoModel implements Serializable {
     @Column(nullable = false)
     protected String foto;
     @Column(nullable = false)
-    protected String dtNascimento;
+    protected Date dt_nascimento;
     @Column
-    private String codPlan;
+    private String cod_plan;
     @Column(nullable = false)
-    private String altura;
+    private float altura;
     @Column(nullable = false)
-    private String peso;
+    private float peso;
 
 }

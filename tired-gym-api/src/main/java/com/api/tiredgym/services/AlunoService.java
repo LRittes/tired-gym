@@ -17,6 +17,6 @@ public class AlunoService {
 
     @Transactional
     public AlunoModel salvarAluno(AlunoModel alunoModel) {
-        return alunoRepository.save(alunoModel);
+        return alunoRepository.salvarAluno(alunoModel);
     }
 }
