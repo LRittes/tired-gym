@@ -1,6 +1,7 @@
 package com.api.tiredgym.dtos;
 
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +28,9 @@ public class AlunoDTO {
     private String foto;
     @NotNull
     private Date dt_nascimento;
+
+    @NotEmpty
+    private List<EmailDTO> emails;
 
     private String codPlan;
     @NotNull

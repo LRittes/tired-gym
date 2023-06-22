@@ -2,10 +2,12 @@ package com.api.tiredgym.models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -16,19 +18,21 @@ public class AlunoModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    protected String cpf;
+    private String cpf;
     @Column(nullable = false)
-    protected String nome;
+    private String nome;
+    @OneToMany(mappedBy = "aluno")
+    private List<EmailModel> emails;
     @Column(nullable = false)
-    protected String digital;
+    private String digital;
     @Column(nullable = false)
-    protected String telefone;
+    private String telefone;
     @Column(nullable = false, length = 1)
-    protected String sexo;
+    private String sexo;
     @Column(nullable = false)
-    protected String foto;
+    private String foto;
     @Column(nullable = false)
-    protected Date dt_nascimento;
+    private Date dt_nascimento;
     @Column
     private String cod_plan;
     @Column(nullable = false)

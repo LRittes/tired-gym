@@ -1,5 +1,7 @@
 package com.api.tiredgym.repositories;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.api.tiredgym.models.AlunoModel;
@@ -10,9 +12,7 @@ import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Repository
-public class AlunoRepository
-// extends JpaRepository<AlunoModel, String>
-{
+public class AlunoRepository {
     @PersistenceContext
     private EntityManager em;
 
@@ -32,5 +32,23 @@ public class AlunoRepository
         query.setParameter("peso", alunoModel.getPeso());
         query.executeUpdate();
         return alunoModel;
+    }
+
+    public boolean existeCPF(String cpf) {
+        String sql = "SELECT * FROM ALUNOS al WHERE al.cpf = :cpf";
+        Query query = em.createNativeQuery(sql, AlunoModel.class);
+        query.setParameter("cpf", cpf);
+        try {
+            query.getSingleResult();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    public List<AlunoModel> encontreTodos() {
+        String sql = "SELECT * FROM ALUNOS";
+        Query query = em.createNativeQuery(sql, AlunoModel.class);
+        return query.getResultList();
     }
 }
