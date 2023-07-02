@@ -19,6 +19,7 @@ public class AlunoRepository {
     @Transactional
     public AlunoModel salvarAluno(AlunoModel alunoModel) {
         String sql = "insert into alunos (cpf,nome,digital,telefone,sexo,foto,dt_nascimento,cod_plan,altura,peso) Values (:cpf, :nome,:digital,:telefone,:sexo,:foto,:dt_nascimento,:cod_plan,:altura,:peso)";
+
         Query query = em.createNativeQuery(sql, AlunoModel.class);
         query.setParameter("cpf", alunoModel.getCpf());
         query.setParameter("nome", alunoModel.getNome());
@@ -49,6 +50,23 @@ public class AlunoRepository {
     public List<AlunoModel> encontreTodos() {
         String sql = "SELECT * FROM ALUNOS";
         Query query = em.createNativeQuery(sql, AlunoModel.class);
+
         return query.getResultList();
+
+    }
+
+    public List<AlunoModel> encontreTodosNoPlano(String categoria) throws Exception {
+        String sql = "SELECT al.* FROM ALUNOS al NATURAL JOIN PLANO pl WHERE pl.categoria = :categoria";
+        try {
+            Query query = em.createNativeQuery(sql, AlunoModel.class);
+            query.setParameter("categoria", categoria);
+
+            return query.getResultList();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 }

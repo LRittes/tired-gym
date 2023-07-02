@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -21,8 +23,12 @@ public class AlunoModel implements Serializable {
     private String cpf;
     @Column(nullable = false)
     private String nome;
+    @JsonIgnore
     @OneToMany(mappedBy = "aluno")
     private List<EmailModel> emails;
+    @JsonIgnore
+    @OneToMany(mappedBy = "aluno")
+    private List<Endereco> enderecos;
     @Column(nullable = false)
     private String digital;
     @Column(nullable = false)

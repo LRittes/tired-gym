@@ -31,6 +31,8 @@ public class AlunoDTO {
 
     @NotEmpty
     private List<EmailDTO> emails;
+    @NotEmpty
+    private List<EnderecoDTO> enderecos;
 
     private String codPlan;
     @NotNull

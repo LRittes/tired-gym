@@ -1,7 +1,6 @@
 package com.api.tiredgym.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,16 @@ public class AlunoService {
 
     public List<AlunoModel> encontreTodos() {
         return alunoRepository.encontreTodos();
+    }
+
+    public List<AlunoModel> encontreTodosNoPlano(String categoria) throws Exception {
+        try {
+            return alunoRepository.encontreTodosNoPlano(categoria);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Transactional
