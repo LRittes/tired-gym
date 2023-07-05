@@ -20,7 +20,7 @@ drop table Alunos cascade
 delete from Alunos
 
 insert into alunos (cpf,nome,digital,telefone,sexo,foto,dt_nascimento,altura,peso,cod_plan) 
-Values ('123a13','leo','asdmalsdnajcnsdh','123834','m','1283123skdmxaskl','2023-08-10',1.8,81.6,1)
+Values ('123a13','leo','asdmalsdnajcnsdh','123834','m','1283123skdmxaskl','2023-08-10',1.8,81.6,'f')
 
 create table EMAIL (
 	cod_e serial primary key,
@@ -35,7 +35,7 @@ drop table email
 
 delete from email
 
-insert into email (cpf, email) values ('12313', 'asdasd')
+insert into email (cpf, email) values ('123a13', 'asdasd')
 
 create table ENDERECO (
 	cod_en serial primary key,
@@ -54,7 +54,7 @@ create table ENDERECO (
 	
 	drop table ENDERECO
 	
-	insert into endereco (cpf,rua,bairro,numero,cidade,uf) values ('12313', 'adasd','asdas', 0, 'asdas', 'sp')
+	insert into endereco (cpf,rua,bairro,numero,cidade,uf) values ('123a13', 'adasd','asdas', 0, 'asdas', 'sp')
 	
 	
 CREATE TABLE PLANO (
@@ -67,6 +67,10 @@ CREATE TABLE PLANO (
 
 select * from plano
 
+delete from plano
+
 drop table plano
 
-insert into Plano (cod_plan, dt_vencimento,preco_ano,preco_mes,categoria) values ('1','29-09-2012',1200,34.90,'b')
+insert into Plano (cod_plan, dt_vencimento,preco_ano,preco_mes,categoria) values ('1','29-09-2025',800,70,'basico')
+insert into Plano (cod_plan, dt_vencimento,preco_ano,preco_mes,categoria) values ('2','29-09-2025',1000,100,'plus')
+insert into Plano (cod_plan, dt_vencimento,preco_ano,preco_mes,categoria) values ('3','29-09-2025',1200,140,'prime')

@@ -34,7 +34,7 @@ public class AlunoDTO {
     @NotEmpty
     private List<EnderecoDTO> enderecos;
 
-    private String codPlan;
+    private String cod_plan;
     @NotNull
     @Min(1)
     private float altura;
